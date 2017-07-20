@@ -37,7 +37,7 @@ router.get('/addItem', function(req, res, next) {
 // /* Remove Item. */
 router.get('/remove/:id', function(req, res, next) {
   knex('items')
-    .update('closed', true)
+    .update('sold', true)
     .where('id', req.body.id)
     .then(function() {
       res.redirect('/user');
