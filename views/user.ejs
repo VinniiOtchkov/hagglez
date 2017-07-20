@@ -1,135 +1,159 @@
-
 <div class="wrapper">
-<div class="userContainer">
-  <div class="userInfo table">
-    <div id="titley">
-    <%= users[0].user_name %>
+  <div class="userContainer">
+    <div class="userInfo table">
+      <div id="titley">
+        <%= users[0].user_name %>
+      </div>
+      <br>
+
     </div>
-    <br>
-
-  </div>
-  <div class="sellingInfo">
-  <table class="table table-hover">
-  <div class="title">Items for sale:</div>
-  <thead>
-    <tr>
-      <th>Image</th>
-      <th></th>
-      <th>Item</th>
-      <th>Description</th>
-      <th>Haggles</th>
+    <div class="sellingInfo">
+      <table class="table table-hover">
+        <div class="title">Items for sale:</div>
+        <thead>
+          <tr>
+            <th>Image</th>
+            <th></th>
+            <th>Item</th>
+            <th>Description</th>
+            <th>Haggles</th>
 
 
-    </tr>
-  </thead>
-  <tbody>
-    <a href="/items/addItem" id="newItem"type="submit">
+          </tr>
+        </thead>
+        <tbody>
+          <a href="/items/addItem" id="newItem" type="submit">
       +
     </a>
-    <% for(var i = 0; i < users.length; i++) { %>
+          <% for(var i = 0; i < users.length; i++) { %>
 
-    <tr class="table-hover">
+            <tr class="table-hover">
 
-      <td id = "imagePad"><img id = "imagey" src="https://multimedia.bbycastatic.ca/multimedia/products/1500x1500/102/10262/10262918.jpg"><td>
-      <td><%=users[i].name%></td>
-      <td><%=users[i].description%></td>
+              <td id="imagePad"><img id="imagey" src="https://multimedia.bbycastatic.ca/multimedia/products/1500x1500/102/10262/10262918.jpg">
+                <td>
+                  <td>
+                    <%=users[i].name%>
+                  </td>
+                  <td>
+                    <%=users[i].description%>
+                  </td>
 
-      <td>
-        <%=users[i].name%>
-        <br>
+                  <td>
+                    <%=users[i].name%>
+                      <br>
 
-        <a href="items/remove/:id">
-                    <button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Vivamus
+                      <a href="items/remove/:id">
+                    <button type="button" id ="userButton" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Vivamus
         sagittis lacus vel augue laoreet rutrum faucibus." data-original-title="" title="" aria-describedby="popover518581">Accept</button>
         </a>
 
-<a href="items/remove/:id">
-            <button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Vivamus
+                      <a href="items/remove/:id">
+            <button type="button" id ="userButton" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Vivamus
 sagittis lacus vel augue laoreet rutrum faucibus." data-original-title="" title="" aria-describedby="popover518581">Reject</button>
 </a>
 
 
-          </td>
+                  </td>
 
-      <td>
-        <br>
-        <a href="items/remove/:id">
+                  <td>
+                    <br>
+                    <a href="items/remove/:id">
                     <button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Vivamus
         sagittis lacus vel augue laoreet rutrum faucibus." data-original-title="" title="" aria-describedby="popover518581">Edit</button>
         </a>
 
 
-        <a href="items/remove/:id">
+                    <a href="items/remove/:id">
                     <button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Vivamus
         sagittis lacus vel augue laoreet rutrum faucibus." data-original-title="" title="" aria-describedby="popover518581">Delete</button>
         </a>
-        </td>
+                  </td>
 
 
-  </tr>
+            </tr>
 
 
-    <% } %>
+            <% } %>
 
-  </tbody>
-  </table>
+        </tbody>
+      </table>
+    </div>
+    <div class="sellingInfo">
+      <table class="table table-hover">
+        <div class="title">Selling:</div>
+        <thead>
+          <tr>
+            <th></th>
+            <th>Image</th>
+            <th>Item</th>
+            <th>Haggle $</th>
+            <th>Buyer Name</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% for(var i = 0; i < selling.length; i++) { %>
+            <tr class="table-hover">
+              <td><img src="<%=selling[i].img_url%>">
+                <td>
+                  <td>
+                    <%=selling[i].item_name%>
+                  </td>
+                  <td>$
+                    <%=selling[i].haggle_price%>
+                  </td>
+                  <td>
+                    <%=selling[i].buyer_name%>
+                  </td>
+                  <td>
+                    <%=selling[i].status%>
+                  </td>
+            </tr>
+
+            <% } %>
+
+        </tbody>
+
+      </table>
+    </div>
+    <div class="buyingInfo">
+      <table class="table table-hover">
+        <div class="title">Haggling:</div>
+        <thead>
+          <tr>
+            <th></th>
+            <th>Image</th>
+            <th>Item</th>
+            <th>Haggle $</th>
+            <th>Seller Name</th>
+            <th>Location</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% for(var i = 0; i < buying.length; i++) { %>
+            <tr>
+              <td><img src="<%=buying[i].img_url%>">
+                <td>
+                  <td>
+                    <%=buying[i].item_name%>
+                  </td>
+                  <td>$
+                    <%=buying[i].haggle_price%>
+                  </td>
+                  <td>
+                    <%=buying[i].seller_name%>
+                  </td>
+                  <td>
+                    <%=buying[i].city%>
+                  </td>
+                  <td>
+                    <%=buying[i].status%>
+                  </td>
+            </tr>
+            <% } %>
+        </tbody>
+      </table>
+    </div>
   </div>
-  <div class="sellingInfo">
-  <table class="table table-hover">
-  <div class="title">Selling:</div>
-  <thead>
-    <tr>
-      <th></th>
-      <th>Image</th>
-      <th>Item</th>
-      <th>Haggle $</th>
-      <th>Buyer Name</th>
-      <th>Status</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% for(var i = 0; i < selling.length; i++) { %>
-    <tr class="table-hover">
-      <td><img src="<%=selling[i].img_url%>"><td>
-      <td><%=selling[i].item_name%></td>
-      <td>$<%=selling[i].haggle_price%></td>
-      <td><%=selling[i].buyer_name%></td>
-      <td><%=selling[i].status%></td>
-    </tr>
-
-    <% } %>
-
-  </tbody>
-
-  </table>
-  </div>
-  <div class="buyingInfo">
-    <table class="table table-hover">
-      <div class="title">Haggling:</div>
-      <thead>
-      <tr>
-        <th></th>
-        <th>Image</th>
-        <th>Item</th>
-        <th>Haggle $</th>
-        <th>Seller Name</th>
-        <th>Location</th>
-        <th>Status</th>
-      </tr>
-      </thead>
-      <tbody>
-      <% for(var i = 0; i < buying.length; i++) { %>
-        <tr>
-          <td><img src="<%=buying[i].img_url%>"><td>
-          <td><%=buying[i].item_name%></td>
-          <td>$<%=buying[i].haggle_price%></td>
-          <td><%=buying[i].seller_name%></td>
-          <td><%=buying[i].city%></td>
-          <td><%=buying[i].status%></td>
-        </tr>
-      <% } %>
-      </tbody>
-    </table>
-  </div>
-</div>
 </div>
