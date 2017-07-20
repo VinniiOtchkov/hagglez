@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Search</title>
+</head>
+
+<body>
+
+  <% if(!items) { %>
+  <h1><center>No results! Try again!</center></h1>
+
+  <% } else { %>
+
+  <% for(var i = 0; i < items.length; i++) { %>
+    <div class="row-md-4">
+      <div class="title">
+
+        <div class="row-md-2" class="searchResults">
+          <img src="<%= items[i].img_url %>">
+        </div>
+        <div class="row-md-2" class="searchResults">
+
+            <%= items[i].name %>
+        </div>
+        <div class="row-md-2" class="searchResults">
+
+            <%= items[i].description %>
+        </div>
+        <div class="row-md-2" class="searchResults">
+
+            <%= items[i].initial_price %>
+        </div>
+        <div class="row-md-2" class="searchResults">
+
+            <%= items[i].seller_name %>
+        </div>
+
+      </div>
+    </div>
+    <% } %>
+    <% } %>
+</body>
+
+</html>
