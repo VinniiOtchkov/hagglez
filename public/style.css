@@ -260,9 +260,6 @@ border: none;
   overflow: scroll;
 }
 
-.searchResults{
-
-}
 
 #newItem{
   height: 0%;
@@ -318,6 +315,15 @@ text-decoration: none;
   max-width: 10px;
 }
 
+.searchResults {
+  text-align: center;
+  height: 50px;
+  width: 500px;
+  float: left;
+  background-color: white;
+  padding: 10px;
+}
+
 #signupText {
   font-family: 'Work Sans', sans-serif;
   margin-top: 6%;
@@ -332,4 +338,10 @@ text-decoration: none;
 
 select {
   color: black;
+}
+
+.scrolly {
+  overflow-y: scroll;
+  height: 500px;
+  width: 700px;
 }

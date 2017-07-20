@@ -9,38 +9,45 @@
 <body>
 
   <% if(!items) { %>
-  <h1><center>No results! Try again!</center></h1>
+    <h1><center>No results! Try again!</center></h1>
 
-  <% } else { %>
+    <% } else { %>
+      <center>
+        <div class="wrapper">
+        <div class="scrolly">
+          <% for(var i = 0; i < items.length; i++) { %>
+            <div class="row-md-8">
+              <div class="title">
 
-  <% for(var i = 0; i < items.length; i++) { %>
-    <div class="row-md-4">
-      <div class="title">
+                <div class="row-md-4 searchResults">
+                  <a href="/items/<%=items[i].id%>"><img src="<%= items[i].img_url %>"></a>
+                </div>
+                <div class="row-md-4 searchResults">
 
-        <div class="row-md-2" class="searchResults">
-          <a href="/items/<%=items[i].id%>"><img src="<%= items[i].img_url %>"></a>
+                  <a href="/items/<%=items[i].id%>">
+                    <%= items[i].name %>
+                  </a>
+                </div>
+                <div class="row-md-4 searchResults">
+
+                  <%= items[i].description %>
+                </div>
+                <div class="row-md-4 searchResults">
+
+                  <%= items[i].initial_price %>
+                </div>
+                <div class="row-md-4 searchResults">
+
+                  <%= items[i].seller_name %>
+                </div>
+
+              </div>
+            </div>
+            <% } %>
+              <% } %>
+            </div>
         </div>
-        <div class="row-md-2" class="searchResults">
-
-            <a href="/items/<%=items[i].id%>"><%= items[i].name %></a>
-        </div>
-        <div class="row-md-2" class="searchResults">
-
-            <%= items[i].description %>
-        </div>
-        <div class="row-md-2" class="searchResults">
-
-            <%= items[i].initial_price %>
-        </div>
-        <div class="row-md-2" class="searchResults">
-
-            <%= items[i].seller_name %>
-        </div>
-
-      </div>
-    </div>
-    <% } %>
-    <% } %>
+      </center>
 </body>
 
 </html>
