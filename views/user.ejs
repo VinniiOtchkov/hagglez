@@ -26,7 +26,8 @@
           </a>
           <% for(var i = 0; i < selling.length; i++) { %>
             <tr class="table-hover">
-              <td id="imagePad"><img id="imagey" src="https://multimedia.bbycastatic.ca/multimedia/products/1500x1500/102/10262/10262918.jpg"></td>
+
+              <td id="imagePad"><img src='<%users[i].img_url%>'>
                 <td>
                   <td>
                     <%=selling[i].item_name%>
@@ -43,8 +44,8 @@
                   <td>
                       <br>
 
-                      <a href="items/remove/:id">
-                    <button type="button" id ="userButton" class="btn btn-default" data-container="body">Accept</button>
+                      <a href="mailto:">
+                    <button type="button" id ="userButton" class="btn btn-default" data-container="body" data-original-title="" title="">Accept</button>
         </a>
 
                       <a href="items/remove/:id">
@@ -75,6 +76,46 @@
         </tbody>
       </table>
     </div>
+
+    <div class="sellingInfo">
+      <table class="table table-hover">
+        <div class="title">Selling:</div>
+        <thead>
+          <tr>
+            <th></th>
+            <th>Image</th>
+            <th>Item</th>
+            <th>Haggle $</th>
+            <th>Buyer Name</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <% for(var i = 0; i < selling.length; i++) { %>
+            <tr class="table-hover">
+              <td><img src="<%=selling[i].img_url%>">
+                <td>
+                  <td>
+                    <%=selling[i].item_name%>
+                  </td>
+                  <td>$
+                    <%=selling[i].haggle_price%>
+                  </td>
+                  <td>
+                    <%=selling[i].buyer_name%>
+                  </td>
+                  <td>
+                    <%=selling[i].status%>
+                  </td>
+            </tr>
+
+            <% } %>
+
+        </tbody>
+
+      </table>
+    </div>
     <div class="buyingInfo">
       <table class="table table-hover">
         <div class="title">Haggling:</div>
@@ -92,7 +133,9 @@
         <tbody>
           <% for(var i = 0; i < buying.length; i++) { %>
             <tr>
-              <td><img src="<%=buying[i].img_url%>">
+              <td>
+                <img src="<%=buying[i].img_url%>" alt="">
+
                 <td>
                   <td>
                     <%=buying[i].item_name%>
