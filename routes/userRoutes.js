@@ -32,17 +32,17 @@ router.get('/login', function(req, res, next) {
 /* GET USER page. */
 router.get('/', function(req, res, next) {
   if (req.isAuthenticated()) {
-    Promise.all([knex('selling_by_id')
-      .join('users', 'users.id', 'selling_by_id.seller_id')
-      .select('seller_name', 'img_url', 'item_name', 'haggle_price', 'buyer_name', 'status')
+    Promise.all([knex('seller_item_list')
+      .select('users.name', 'users.email', 'statuses.status', 'seller_item_list.*')
+      .leftJoin('users', 'seller_item_list.buyer_id', 'users.id')
+      .leftJoin('statuses', 'seller_item_list.status_id', 'statuses.id')
       .where('seller_id', req.user.id),
       knex('buyer_by_id')
       .join('users', 'users.id', 'buyer_by_id.buyer_id')
       .select('img_url', 'item_name', 'haggle_price', 'seller_name', 'city', 'status')
       .where('buyer_id', req.user.id),
       knex('users')
-      .join('items', 'users.id', 'items.seller_id')
-      .select('users.name as user_name', 'items.*')
+      .select('name')
       .where('users.id', req.user.id),
     ]).then(function(users) {
       res.render('user', {
