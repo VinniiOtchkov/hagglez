@@ -18,11 +18,11 @@
       <div class="title">
 
         <div class="row-md-2" class="searchResults">
-          <img src="<%= items[i].img_url %>">
+          <a href="/items/<%=items[i].id%>"><img src="<%= items[i].img_url %>"></a>
         </div>
         <div class="row-md-2" class="searchResults">
 
-            <%= items[i].name %>
+            <a href="/items/<%=items[i].id%>"><%= items[i].name %></a>
         </div>
         <div class="row-md-2" class="searchResults">
 
