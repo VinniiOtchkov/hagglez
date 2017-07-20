@@ -29,7 +29,7 @@
 
             <tr class="table-hover">
 
-              <td id="imagePad"><img id="imagey" src="https://multimedia.bbycastatic.ca/multimedia/products/1500x1500/102/10262/10262918.jpg">
+              <td id="imagePad"><img src='<%users[i].img_url%>'>
                 <td>
                   <td>
                     <%=users[i].name%>
@@ -42,9 +42,8 @@
                     <%=users[i].name%>
                       <br>
 
-                      <a href="items/remove/:id">
-                    <button type="button" id ="userButton" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Vivamus
-        sagittis lacus vel augue laoreet rutrum faucibus." data-original-title="" title="" aria-describedby="popover518581">Accept</button>
+                      <a href="mailto:">
+                    <button type="button" id ="userButton" class="btn btn-default" data-container="body" data-original-title="" title="">Accept</button>
         </a>
 
                       <a href="items/remove/:id">
@@ -92,6 +91,7 @@ sagittis lacus vel augue laoreet rutrum faucibus." data-original-title="" title=
           </tr>
         </thead>
         <tbody>
+
           <% for(var i = 0; i < selling.length; i++) { %>
             <tr class="table-hover">
               <td><img src="<%=selling[i].img_url%>">
@@ -133,7 +133,9 @@ sagittis lacus vel augue laoreet rutrum faucibus." data-original-title="" title=
         <tbody>
           <% for(var i = 0; i < buying.length; i++) { %>
             <tr>
-              <td><img src="<%=buying[i].img_url%>">
+              <td>
+                <img src="<%=buying[i].img_url%>" alt="">
+
                 <td>
                   <td>
                     <%=buying[i].item_name%>
