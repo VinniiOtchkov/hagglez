@@ -37,10 +37,10 @@ router.get('/addItem', function(req, res, next) {
 // /* Remove Item. */
 router.get('/remove/:id', function(req, res, next) {
   knex('items')
-  .update('closed', true)
-  .where('id', req.body.id)
-  .then(function() {
-    res.redirect('/user');
+    .update('closed', true)
+    .where('id', req.body.id)
+    .then(function() {
+      res.redirect('/user');
     })
 })
 
@@ -75,7 +75,7 @@ router.get('/:id', function(req, res, next) {
     .where('id', req.params.id)
     .then(function(items) {
       res.render('itemID', {
-        items: items
+        items: items[0]
       })
     })
 })
