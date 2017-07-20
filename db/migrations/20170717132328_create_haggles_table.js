@@ -5,7 +5,7 @@ exports.up = function(knex, Promise) {
         table.integer('buyer_id').references('id').inTable('users');
         table.integer('haggle_price');
         table.integer('item_id').references('id').inTable('items');
-        table.integer('status_id').references('id').inTable('statuses')
+        table.integer('status_id').references('id').inTable('statuses').defaultTo(1);
     })
 };
 
