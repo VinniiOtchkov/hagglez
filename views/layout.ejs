@@ -4,9 +4,6 @@
 <head>
   <meta charset="utf-8">
 
-  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-
   <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon">
   <link rel="icon" href="/images/favicon.png" type="image/x-icon">
 
@@ -53,60 +50,70 @@
 
   <%- body %>
 
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+    <script type="text/javascript">
+      $.fn.extend({
+        animateCss: function(animationName) {
+          var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
+          this.addClass('animated ' + animationName).one(animationEnd, function() {
+            $(this).removeClass('animated ' + animationName);
+          });
+          return this;
+        }
+      });
+
+      $(function() {
+        $('#inputDefault').hover(function() {
+          $('#navLabel').css('opacity', '1');
+          $('#navLabel').animateCss('fadeInUp');
+
+        }, function() {
+
+          $('#navLabel').css({
+            transition: 'all 0.5s ease-out',
+            opacity: '0'
+          });
+
+        })
+
+      });
+
+
+
+      $('.wrapper').css('display', 'none');
+
+
+      $('.wrapper').fadeIn(700);
+
+
+      $('.link').click(function() {
+
+        event.preventDefault();
+
+        newLocation = this.href;
+        $('.wrapper').fadeOut(700);
+
+
+      });
+
+      function newpage() {
+
+        window.location = newLocation;
+
+
+      }
+
+
+    </script>
 
 </body>
 
-<script type="text/javascript">
-  $.fn.extend({
-    animateCss: function(animationName) {
-      var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
-      this.addClass('animated ' + animationName).one(animationEnd, function() {
-        $(this).removeClass('animated ' + animationName);
-      });
-      return this;
-    }
-  });
 
-  $(function() {
-    $('#inputDefault').hover(function() {
-      $('#navLabel').css('opacity', '1');
-      $('#navLabel').animateCss('fadeInUp');
-
-    }, function() {
-
-      $('#navLabel').css({
-        transition: 'all 0.5s ease-out',
-        opacity: '0'
-      });
-
-    })
-
-  });
-
-
-
-  $('.wrapper').css('display', 'none');
-
-
-  $('.wrapper').fadeIn(700);
-
-
-  $('.link').click(function() {
-
-    event.preventDefault();
-
-    newLocation = this.href;
-    $('.wrapper').fadeOut(700);
-
-
-  });
-
-  function newpage() {
-
-    window.location = newLocation;
-
-
-  }
-</script>
 
 </html>
