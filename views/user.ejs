@@ -1,4 +1,4 @@
-<%- contentFor('body') %>
+
 <div class="wrapper">
 <div class="userContainer">
   <div class="userInfo table">
@@ -17,6 +17,8 @@
       <th></th>
       <th>Item</th>
       <th>Description</th>
+      <th>Haggles</th>
+
 
     </tr>
   </thead>
@@ -33,18 +35,39 @@
       <td><%=users[i].description%></td>
 
       <td>
-          <a href="/items/search" class="btn btn-primary btn-lg" type="submit" id="userButtons" style="background-color:#699837;">
-            <div id="haggleText">Edit</div>
-          </a>
-      </td>
+        <%=users[i].name%>
+        <br>
+
+        <a href="items/remove/:id">
+                    <button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Vivamus
+        sagittis lacus vel augue laoreet rutrum faucibus." data-original-title="" title="" aria-describedby="popover518581">Accept</button>
+        </a>
+
+<a href="items/remove/:id">
+            <button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Vivamus
+sagittis lacus vel augue laoreet rutrum faucibus." data-original-title="" title="" aria-describedby="popover518581">Reject</button>
+</a>
+
+
+          </td>
 
       <td>
+        <br>
+        <a href="items/remove/:id">
+                    <button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Vivamus
+        sagittis lacus vel augue laoreet rutrum faucibus." data-original-title="" title="" aria-describedby="popover518581">Edit</button>
+        </a>
 
-          <a href="items/remove/:id" class="btn btn-primary btn-lg" type="submit" id="userButtons" style="background-color:#BD321F;">
-            <div id="haggleText">Delete</div>
-          </a>
+
+        <a href="items/remove/:id">
+                    <button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Vivamus
+        sagittis lacus vel augue laoreet rutrum faucibus." data-original-title="" title="" aria-describedby="popover518581">Delete</button>
+        </a>
         </td>
-    </tr>
+
+
+  </tr>
+
 
     <% } %>
 
