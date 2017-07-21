@@ -13,7 +13,6 @@
         <thead>
           <tr>
             <th>Image</th>
-            <th></th>
             <th>Item</th>
             <th>Description</th>
             <th>Haggles</th>
@@ -29,8 +28,8 @@
 
             <tr class="table-hover">
 
-              <td id="imagePad"><img src='<%users[i].img_url%>'>
-                <td>
+              <td><img id ="imgStuff" src='<%users[i].img_url%>'>
+              </td>
                   <td>
                     <%=users[i].name%>
                   </td>
@@ -42,13 +41,12 @@
                     <%=users[i].name%>
                       <br>
 
-                      <a href="mailto:">
+                      <a href="/haggle/accept">
                     <button type="button" id ="userButton" class="btn btn-default" data-container="body" data-original-title="" title="">Accept</button>
         </a>
 
-                      <a href="items/remove/:id">
-            <button type="button" id ="userButton" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Vivamus
-sagittis lacus vel augue laoreet rutrum faucibus." data-original-title="" title="" aria-describedby="popover518581">Reject</button>
+                      <a href="/haggle/reject">
+            <button type="button" type ="submit" id ="userButton" class="btn btn-default" data-container="body">Reject</button>
 </a>
 
 
@@ -56,15 +54,14 @@ sagittis lacus vel augue laoreet rutrum faucibus." data-original-title="" title=
 
                   <td>
                     <br>
-                    <a href="items/remove/:id">
+                    <a href="/items/edit">
                     <button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Vivamus
         sagittis lacus vel augue laoreet rutrum faucibus." data-original-title="" title="" aria-describedby="popover518581">Edit</button>
         </a>
 
 
                     <a href="items/remove/:id">
-                    <button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Vivamus
-        sagittis lacus vel augue laoreet rutrum faucibus." data-original-title="" title="" aria-describedby="popover518581">Delete</button>
+                    <button type="button" class="btn btn-default" data-container="body">Delete</button>
         </a>
                   </td>
 
@@ -94,7 +91,7 @@ sagittis lacus vel augue laoreet rutrum faucibus." data-original-title="" title=
 
           <% for(var i = 0; i < selling.length; i++) { %>
             <tr class="table-hover">
-              <td><img src="<%=selling[i].img_url%>">
+              <td><img id ="imgStuff" src="<%=selling[i].img_url%>">
                 <td>
                   <td>
                     <%=selling[i].item_name%>
@@ -134,7 +131,7 @@ sagittis lacus vel augue laoreet rutrum faucibus." data-original-title="" title=
           <% for(var i = 0; i < buying.length; i++) { %>
             <tr>
               <td>
-                <img src="<%=buying[i].img_url%>" alt="">
+                <img id ="imgStuff" src="<%=buying[i].img_url%>" alt="">
 
                 <td>
                   <td>
