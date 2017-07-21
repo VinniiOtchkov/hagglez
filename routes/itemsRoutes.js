@@ -68,6 +68,28 @@ router.post('/addItem', function(req, res, next) {
     });
 });
 
+router.get('/edit', function(req, res) {
+  knex.raw(`select * from items WHERE id = ${req.params.id}`).then(function(items) {
+    res.render('editItem', {
+      items: items.rows[0]
+    });
+  });
+});
+
+router.post('/edit', function(req, res) {
+  knex.raw(`update items
+    set
+    name = '${req.body.name}',
+    initial_price = '${req.body.initial_price}',
+    description = '${req.body.description}'
+    WHERE id = ${req.params.id}
+    `).then(function() {
+    knex.raw(`select * from items`).then(function(items) {
+      res.redirect('/');
+    });
+  });
+});
+
 /* GET Single Item. */
 router.get('/:id', function(req, res, next) {
   knex('items')
@@ -79,5 +101,8 @@ router.get('/:id', function(req, res, next) {
       })
     })
 })
+
+
+
 
 module.exports = router;

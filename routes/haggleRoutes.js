@@ -24,6 +24,29 @@ router.post('/', function(req, res, next) {
     });
 });
 
+router.get('/accept',function(req,res,next){
+  knex('haggles')
+  .update({
+status_id: 2
+  })
+  .where('id',req.body.id)
+  .then(function(){
+    res.redirect('/user');
+  });
+});
+
+
+router.get('/reject',function(req,res,next){
+  knex('haggles')
+  .update({
+status_id: 3
+  })
+  .where('id',req.body.id)
+  .then(function(){
+    res.redirect('/user');
+  });
+});
+
 // router.post('/:user_id', function(req, res, next) {
 //   knex('haggles')
 //     .count()

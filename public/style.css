@@ -42,6 +42,8 @@ body {
   background-color: #C6C7C4;
   background-size: cover;
   position: fixed;
+  font-family: 'Work Sans', sans-serif;
+
 }
 
 select {
@@ -95,6 +97,10 @@ img {
   color: white;
 }
 
+#imgStuff{
+  max-width: 200px;
+  max-height: 200px;
+}
 
 
 a:hover {
@@ -309,6 +315,18 @@ text-decoration: none;
   max-width: 200px;
 }
 
+#submitHaggle{
+
+}
+#searchImg{
+  max-height: 600px;
+  max-width: 600px;
+}
+
+#inputHaggle{
+  width: 20%;
+  margin-left: 40%;
+}
 
 .searchResults img{
   max-height: 10px;
