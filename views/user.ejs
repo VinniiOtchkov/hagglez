@@ -2,10 +2,9 @@
   <div class="userContainer">
     <div class="userInfo table">
       <div id="titley">
-        <%= users[0].user_name %>
+        <%= users[0].name %>
       </div>
       <br>
-
     </div>
     <div class="sellingInfo">
       <table class="table table-hover">
@@ -16,29 +15,32 @@
             <th>Item</th>
             <th>Description</th>
             <th>Haggles</th>
-
-
+            <th>Haggle Price</th>
+            <th>Update</th>
           </tr>
         </thead>
         <tbody>
           <a href="/items/addItem" id="newItem" type="submit">
-      +
-    </a>
-          <% for(var i = 0; i < users.length; i++) { %>
-
+            ADD Item
+          </a>
+          <% for(var i = 0; i < selling.length; i++) { %>
             <tr class="table-hover">
 
               <td><img id ="imgStuff" src='<%users[i].img_url%>'>
               </td>
                   <td>
-                    <%=users[i].name%>
+                    <%=selling[i].item_name%>
                   </td>
                   <td>
-                    <%=users[i].description%>
+                    <%=selling[i].description%>
                   </td>
-
                   <td>
-                    <%=users[i].name%>
+                    <%=selling[i].name%>
+                  </td>
+                  <td>
+                    <%=selling[i].haggle_price%>
+                  </td>
+                  <td>
                       <br>
 
                       <a href="/haggle/accept">
@@ -54,9 +56,8 @@
 
                   <td>
                     <br>
-                    <a href="/items/edit">
-                    <button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Vivamus
-        sagittis lacus vel augue laoreet rutrum faucibus." data-original-title="" title="" aria-describedby="popover518581">Edit</button>
+                    <a href="items/remove/:id">
+                    <button type="button" class="btn btn-default" data-container="body">Edit</button>
         </a>
 
 

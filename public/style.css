@@ -267,18 +267,19 @@ border: none;
 }
 
 
-#newItem{
-  height: 0%;
-  width: 0%;
+#newItem {
+  height: 20px;
+  width: 200px;
+  margin-bottom: 10px;
   opacity:0.9;
-font-size: 25px;
+  font-size: 25px;
   color: white;
   font-family: 'Work Sans', sans-serif;
   border: none;
-float: right;
-border-radius: 10px;
-margin-right: 30px;
-text-decoration: none;
+  float: right;
+  border-radius: 10px;
+  margin-right: 30px;
+  text-decoration: none;
 }
 
 #newItem:hover{
